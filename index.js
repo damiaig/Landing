@@ -93,4 +93,9 @@ document.querySelector(".refresh-button span").addEventListener("click", () => {
   location.reload();
 });
 
-       
+const messageEl = document.getElementById("message");
+const charCountEl = document.getElementById("charCount");
+
+messageEl.addEventListener("input", () => {
+  charCountEl.textContent = `${messageEl.value.length}/500`;
+});
