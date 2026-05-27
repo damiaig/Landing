@@ -996,3 +996,85 @@ body {
   .hero-stat-strip { display: none; }
   .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
 }
+
+/* ===== DISABLE HOVER / MOUSE EFFECTS ON MOBILE ===== */
+@media   (max-width: 600px), (hover: none), (pointer: coarse) {
+ 
+  /* Restore normal cursor */
+  body {
+    cursor: auto;
+  }
+
+  /* Hide custom cursor */
+  .cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+
+  /* Disable hover animations globally */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Buttons */
+  .btn-primary:hover,
+  .btn-submit:hover {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  .btn-primary:hover::before,
+  .btn-submit:hover::before {
+    transform: translateX(-101%);
+  }
+
+  .btn-primary:hover svg,
+  .btn-submit:hover svg {
+    transform: none;
+  }
+
+  /* Nav links */
+  .nav-links a:hover,
+  .mobile-link:hover,
+  .link-arrow:hover {
+    color: inherit;
+  }
+
+  .nav-links a:hover::after,
+  .link-arrow:hover::after {
+    width: 0;
+  }
+
+  .link-arrow:hover svg {
+    transform: none;
+  }
+
+  /* Service cards */
+  .service-card:hover {
+    background: rgba(255,255,255,0.02);
+    border-color: rgba(255,255,255,0.06);
+  }
+
+  .service-card:hover::before {
+    transform: scaleX(0);
+  }
+
+  .service-card:hover .service-icon {
+    opacity: 0.7;
+  }
+
+  /* Mission emoji pop effect OFF */
+  .mission-item:hover .mission-emoji-wrap {
+    opacity: 0.5;
+    transform: none;
+  }
+
+  .mission-item:hover .mission-num {
+    color: rgba(255,255,255,0.1);
+    opacity: 1;
+  }
+
+  .mission-item:hover {
+    background: transparent;
+  }
+}
